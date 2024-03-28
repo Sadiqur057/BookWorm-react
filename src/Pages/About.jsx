@@ -1,10 +1,11 @@
 
-import ContactForm from '../components/ContactForm';
+import AboutInfo from '../components/AboutInfo';
 
 const About = () => {
   return (
     <div>
-      <ContactForm></ContactForm>
+      <AboutInfo></AboutInfo>
+      
     </div>
   );
 };
