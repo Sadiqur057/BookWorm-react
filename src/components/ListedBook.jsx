@@ -29,8 +29,8 @@ const ListedBook = ({ book }) => {
           />
         </div>
         <div className="col-span-12 md:col-span-7 lg:col-span-8">
-          <h2 className="text-xl md:text-2xl font-bold">{bookName}</h2>
-          <p className="text-c-light font-medium text-lg font-work my-3 md:my-4">
+          <h2 className="text-[24px] md:text-2xl font-bold">{bookName}</h2>
+          <p className="text-c-light font-medium md:text-lg font-work my-[10px] md:my-4">
             By : {author}
           </p>
           <div className="flex gap-3 lg:items-center flex-col lg:flex-row">
