@@ -21,9 +21,9 @@ const ListedBook = ({ book }) => {
   return (
     <div className="p-3 md:p-5 lg:p-6 border-[1px] rounded-2xl my-4">
       <div className="grid grid-cols-12 gap-5">
-        <div className="col-span-12 lg:col-span-3 md:col-span-5  justify-center bg-base-200 mx-auto rounded-md md:h-full flex items-center w-full max-h-fit">
+        <div className="col-span-12 lg:col-span-3 md:col-span-5  justify-center bg-base-200 mx-auto rounded-xl md:h-full flex items-center w-full max-h-fit">
           <img
-            className="px-10 md:px-12 py-4 md:p-6 w-1/2 md:w-full h-fit mx-auto flex "
+            className="px-10 md:px-12 py-4 md:p-6 w-[70%] md:w-full h-fit mx-auto flex "
             src={image}
             alt=""
           />
