@@ -1,4 +1,4 @@
-import aboutImg from '../../public/aboutImg.jpg'
+import aboutImg from '../assets/images/aboutImg.jpg'
 const AboutInfo = () => {
   return (
     <div className="p-5 mx-auto sm:p-10 md:p-16 font-work sans bg-base-200 mb-8 md:mb-12 rounded-2xl">
