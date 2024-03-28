@@ -4,8 +4,8 @@ import useFilterBook from "../Hooks/useFilterBook";
 import { useState } from "react";
 
 const ListedBooks = () => {
-  const wishList = useFilterBook("wishList");
-  const readingList = useFilterBook("readingList");
+  const { readingBook: wishList, loading: loadingWishList } = useFilterBook("wishList");
+  const { readingBook: readingList,loading: loadingReadingList } = useFilterBook("readingList");
 
   const [wishListDisplayData, setWishListDisplayData] = useState([]);
   const [readingListDisplayData, setReadingListDisplayData] = useState([]);
@@ -31,7 +31,7 @@ const ListedBooks = () => {
 
   const handleSortChange = (e) => {
     const selectedValue = e.target.value;
-    sort(selectedValue); 
+    sort(selectedValue);
   };
   const handleTab = (tabName) => {
     setSelectedTab(tabName);
@@ -44,16 +44,29 @@ const ListedBooks = () => {
       </div>
 
       <div className="flex justify-center my-4 md:my-6">
-        <select onChange={handleSortChange} className="select bg-c-primary text-white hover:bg-white hover:border-c-primary hover:text-c-primary font-bold focus:outline-none">
+        <select
+          onChange={handleSortChange}
+          className="select bg-c-primary text-white hover:bg-white hover:border-c-primary hover:text-c-primary font-bold focus:outline-none"
+        >
           <option disabled selected className="hidden py-10">
             Sort By
           </option>
-          <option value="rating" className="text-lg  py-10 text-black bg-base-200 px-10">
+          <option
+            value="rating"
+            className="text-lg  py-10 text-black bg-base-200 px-10"
+          >
             Rating
           </option>
-          <option value="totalPages" className="text-lg  py-10 text-black bg-base-200 px-10">Number of Pages
+          <option
+            value="totalPages"
+            className="text-lg  py-10 text-black bg-base-200 px-10"
+          >
+            Number of Pages
           </option>
-          <option value="yearOfPublishing" className="text-lg  py-10 text-black bg-base-200 px-10">
+          <option
+            value="yearOfPublishing"
+            className="text-lg  py-10 text-black bg-base-200 px-10"
+          >
             Published year
           </option>
         </select>
@@ -73,6 +86,11 @@ const ListedBooks = () => {
             role="tabpanel"
             className="tab-content bg-base-100 border-base-300  py-4 md:py-6 border-x-0 border-b-0"
           >
+            {loadingReadingList && (
+              <div className="flex justify-center h-40 items-center">
+                <span className="loading lg:scale-150 loading-dots loading-lg "></span>
+              </div>
+            )}
             {readingListDisplayData.length > 0
               ? readingListDisplayData.map((book) => (
                   <ListedBook key={book.bookId} book={book}></ListedBook>
@@ -95,6 +113,11 @@ const ListedBooks = () => {
             role="tabpanel"
             className="tab-content bg-base-100 border-base-300  py-4 md:py-6 border-x-0 border-b-0"
           >
+            {loadingWishList && (
+              <div className="flex justify-center h-40 items-center">
+                <span className="loading lg:scale-150 loading-dots loading-lg "></span>
+              </div>
+            )}
             {wishListDisplayData.length > 0
               ? wishListDisplayData.map((book) => (
                   <ListedBook key={book.bookId} book={book}></ListedBook>

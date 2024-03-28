@@ -6,16 +6,18 @@ import saveData from "../utils/SaveDataToLS";
 const BookDetails = () => {
   const [book, setBook] = useState([]);
   const { id } = useParams();
+  const [loading, setLoading] = useState(false);
 
   // load all the data
   const { bookData } = useLoadBookData();
 
-
   // find the target data
   useEffect(() => {
+    setLoading(true);
     if (bookData) {
       const targetBook = bookData.find((book) => book.bookId == id);
       setBook(targetBook);
+      setLoading(false);
     }
   }, [bookData, id]);
 
@@ -35,19 +37,31 @@ const BookDetails = () => {
   console.log(bookName);
 
   // handle read
-  const handleAddToRead =()=>{
-    saveData('readingList',bookId)
-  }
+  const handleAddToRead = () => {
+    saveData("readingList", bookId);
+  };
 
   // handle wishlist
-  const handleAddToWishList =()=>{
-    saveData('wishList',bookId)
+  const handleAddToWishList = () => {
+    saveData("wishList", bookId);
+  };
+
+  if (loading) {
+    return (
+      <div className="flex justify-center h-40 items-center">
+        <span className="loading lg:scale-150 loading-dots loading-lg "></span>
+      </div>
+    );
   }
 
   return (
     <div className="flex flex-col lg:flex-row my-4  lg:my-6 gap-6 md:gap-8 lg:gap-10">
       <figure className="bg-base-200 p-5 md:p-10 lg:p-16  flex justify-center items-center lg:w-1/2 rounded-lg">
-        <img className="lg:max-h-[500px] lg:w-fit self-center  w-[45%] " src={image} alt="Movie" />
+        <img
+          className="lg:max-h-[500px] lg:w-fit self-center  w-[45%] "
+          src={image}
+          alt="Movie"
+        />
       </figure>
       <div className="font-work h-fit  lg:w-1/2">
         <h2 className="text-xl md:text-4xl font-bold mb-3 md:mb-5">
@@ -97,10 +111,16 @@ const BookDetails = () => {
           </table>
         </div>
         <div className="mt-4 md:mt-6">
-          <button onClick={handleAddToRead} className="btn btn-ghost btn-outline border-base-300 font-semibold md:text-lg mr-2">
+          <button
+            onClick={handleAddToRead}
+            className="btn btn-ghost btn-outline border-base-300 font-semibold md:text-lg mr-2"
+          >
             Read
           </button>
-          <button onClick={handleAddToWishList} className="btn bg-[#59c6d2] text-white hover:bg-white hover:text-[#59c6d2] hover:border-[#59c6d2] border-[1px] font-semibold md:text-lg">
+          <button
+            onClick={handleAddToWishList}
+            className="btn bg-[#59c6d2] text-white hover:bg-white hover:text-[#59c6d2] hover:border-[#59c6d2] border-[1px] font-semibold md:text-lg"
+          >
             Wishlist
           </button>
         </div>
