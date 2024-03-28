@@ -29,6 +29,7 @@ Book Worm is a user-friendly web application designed for book enthusiasts, offe
 - **Book Interaction**: Users can interact with books by adding them to their wishlist or read list.
 - **Wishlist and Read List**: Users can manage their wishlist and read list, facilitating organization and planning of their reading activities.
 - **Page Count Chart**: The "Pages to Read" page dynamically generates a chart reflecting the number of pages of the book which are added to read list, providing visual insights into their reading progress.
+- **Sort By Category**: Users can filter wishlisted and read list books by rating, publisher year and number of pages.
 - **Responsive Design**: The application is fully responsive, ensuring optimal user experience across various devices and screen sizes.
 
 ## Screenshots
