@@ -1,0 +1,67 @@
+[
+  {
+    "id":1,
+    "image": "https://i.postimg.cc/wTKV6YzP/img-1.jpg",
+    "title": "Exploring the Depths of Literature",
+    "author": "Emily Johnson",
+    "posted_time": "2024-03-27T10:00:00Z",
+    "description": "Delve deep into the intricate tapestry of literature with us as we uncover hidden gems and timeless classics. Join our journey to explore the depths of human imagination and creativity.",
+    "likes": 256,
+    "comments": 78
+  },
+  {
+    "id":2,
+    "image": "https://i.postimg.cc/mr0whvMt/img-2.jpg",
+    "title": "The Art of Storytelling",
+    "author": "Michael Smith",
+    "posted_time": "2024-03-26T15:30:00Z",
+    "description": "Experience the captivating essence of storytelling as we unravel the secrets behind crafting compelling narratives. Join our exploration of the art that has shaped cultures and civilizations throughout history.",
+    
+    "likes": 187,
+    "comments": 42
+  },
+  {
+    "id":3,
+    "image": "https://i.postimg.cc/PJKYb9Lb/img-3.jpg",
+    "title": "Unraveling Literary Mysteries",
+    "author": "Sophia Martinez",
+    "posted_time": "2024-03-25T09:45:00Z",
+    "description": "Embark on a thrilling adventure through the enigmatic worlds of mystery and suspense in literature. Let us guide you through the twists and turns of literary mysteries that will keep you on the edge of your seat.",
+    
+    "likes": 312,
+    "comments": 96
+  },
+  {
+    "id":4,
+    "image": "https://i.postimg.cc/wj1LJW9J/img-4.jpg",
+    "title": "The Power of Words",
+    "author": "David Thompson",
+    "posted_time": "2024-03-24T12:20:00Z",
+    "description": "Experience firsthand the transformative power of words as we explore their profound impact on shaping perceptions and realities. Join us in discovering the potent force that resides within language.",
+    
+    "likes": 412,
+    "comments": 124
+  },
+  {
+    "id":5,
+    "image": "https://i.postimg.cc/LXp1c2LB/img-5.jpg",
+    "title": "Journey Through Literary History",
+    "author": "Jennifer Brown",
+    "posted_time": "2024-03-23T17:00:00Z",
+    "description": "Embark on an enlightening journey through the annals of literary history as we uncover the rich tapestry of stories that have shaped our world. Join us in tracing the footsteps of literary giants and exploring the enduring legacy they have left behind.",
+    
+    "likes": 521,
+    "comments": 198
+  },
+  {
+    "id":6,
+    "image": "https://i.postimg.cc/rFKKYK72/img-6.jpg",
+    "title": "The Magic of Children's Books",
+    "author": "Robert Davis",
+    "posted_time": "2024-03-22T11:10:00Z",
+    "description": "Rediscover the enchanting magic of childhood through the pages of timeless children's books. Join us on a whimsical adventure filled with wonder and imagination as we explore the enduring charm of stories that have captivated generations.",
+    
+    "likes": 369,
+    "comments": 82
+  }
+]
