@@ -17,7 +17,7 @@ const PagesToRead = () => {
     }
 
   }, [readingList]);
-  console.log(data)
+
 
   const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "red", "pink"];
   
@@ -45,14 +45,6 @@ const renderCustomAxisTick = (props) => {
     </g>
   );
 };
-console.log(data.length)
-if(data.length===0){
-  return (
-    <div className='bg-base-200 py-10 flex justify-center rounded-xl md:rounded-3xl'>
-      <h1 className='font-bold text-2xl md:text-3xl'>No Data found</h1>
-    </div>
-  )
-}
 
 return (
   <div className='w-full mx-auto py-8 px-4 lg:py-20 lg:px-10 bg-base-200 overflow-auto rounded-xl md:rounded-3xl'>
