@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import bannerImg from "../../public/banner-img.png";
 const Banner = () => {
   return (
@@ -7,8 +8,14 @@ const Banner = () => {
           <img src={bannerImg} className="rounded-lg" />
         </div>
         <div className="flex-1">
-          <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold leading-snug mb-6 md:mb-8 lg:mb-10">Books to freshen up your bookshelf</h1>
-          <button className="text-white py-3 md:py-4 lg:py-5 px-7 font-medium bg-c-primary text-lg md:text-xl font-work hover:border-c-primary border-[1px] hover:bg-white hover:text-c-primary rounded-lg">View The List</button>
+          <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold leading-snug mb-6 md:mb-8 lg:mb-10">
+            Books to freshen up your bookshelf
+          </h1>
+          <Link to='/listed'>
+            <button className="text-white py-3 md:py-4 lg:py-5 px-7 font-medium bg-c-primary text-lg md:text-xl font-work hover:border-c-primary border-[1px] hover:bg-white hover:text-c-primary rounded-lg">
+              View The List
+            </button>
+          </Link>
         </div>
       </div>
     </div>
