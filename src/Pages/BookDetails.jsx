@@ -9,14 +9,17 @@ const BookDetails = () => {
   const [loading, setLoading] = useState(false);
 
   // load all the data
-  const { bookData } = useLoadBookData();
+  const { bookData,loading:bookLoading } = useLoadBookData();
 
   // find the target data
   useEffect(() => {
     setLoading(true);
-    if (bookData) {
-      const targetBook = bookData.find((book) => book.bookId == id);
-      setBook(targetBook);
+    try {
+      if (bookData) {
+        const targetBook = bookData.find((book) => book.bookId == id);
+        setBook(targetBook);
+      }
+    } finally {
       setLoading(false);
     }
   }, [bookData, id]);
@@ -46,7 +49,7 @@ const BookDetails = () => {
     saveData("wishList", bookId);
   };
 
-  if (loading) {
+  if (loading || bookLoading) {
     return (
       <div className="flex justify-center h-40 items-center">
         <span className="loading lg:scale-150 loading-dots loading-lg "></span>
