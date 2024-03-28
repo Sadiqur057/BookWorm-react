@@ -19,8 +19,6 @@ const BookDetails = () => {
     }
   }, [bookData, id]);
 
-  // data will take some time to load, to avoid undefined error
-  // set initial empty obj, it will update when data arrives
   const {
     bookId,
     bookName,
@@ -47,11 +45,11 @@ const BookDetails = () => {
   }
 
   return (
-    <div className="grid lg:grid-cols-2 mt-4  lg:mt-6 gap-6 md:gap-8 lg:gap-10">
-      <figure className="bg-base-200 p-5 md:p-10 lg:p-16 h-full w-full flex justify-center items-center flex-1">
-        <img className="h-full lg:w-fit self-center  w-1/3" src={image} alt="Movie" />
+    <div className="flex flex-col lg:flex-row my-4  lg:my-6 gap-6 md:gap-8 lg:gap-10">
+      <figure className="bg-base-200 p-5 md:p-10 lg:p-16  flex justify-center items-center lg:w-1/2 rounded-lg">
+        <img className="lg:max-h-[500px] lg:w-fit self-center  w-[45%] " src={image} alt="Movie" />
       </figure>
-      <div className="font-work h-fit flex-1 ">
+      <div className="font-work h-fit  lg:w-1/2">
         <h2 className="text-xl md:text-4xl font-bold mb-3 md:mb-5">
           {bookName}
         </h2>

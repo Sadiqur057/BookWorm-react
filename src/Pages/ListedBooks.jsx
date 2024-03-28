@@ -2,18 +2,40 @@ import { IoIosArrowDown } from "react-icons/io";
 import ListedBook from "../components/ListedBook";
 
 import useFilterBook from "../Hooks/useFilterBook";
-
-
-
+import { useState } from "react";
 
 const ListedBooks = () => {
 
+  const wishList = useFilterBook("wishList");
+  const readingList = useFilterBook("readingList");
+  
 
-const readingList = useFilterBook('readingList')
-console.log("readinglist",readingList.length)
+  const [wishListDisplayData, setWishListDisplayData] = useState([]);
+  const [readingListDisplayData, setReadingListDisplayData] = useState([]);
+  const [selectedTab, setSelectedTab] = useState('read');
 
-const wishList = useFilterBook('wishList')
-console.log("wishlist", wishList.length)
+
+  const sortData = (sortCategory,bookDatas) => {
+    // let sortedData;
+    console.log(sortCategory)
+    if(sortCategory && bookDatas){
+      const sortedData = [...bookDatas].sort((prev,curr)=> curr[sortCategory] - prev[sortCategory] )
+      return sortedData
+    }
+  };
+
+
+  const sort = (rating) => {
+    const newWishListData = sortData(rating, wishList);
+    setWishListDisplayData([...newWishListData])
+    const newReadListData = sortData(rating, readingList);
+    setReadingListDisplayData([...newReadListData])
+  };
+
+  const handleTab=(tabName)=>{
+    setSelectedTab(tabName);
+  }
+
 
   return (
     <div>
@@ -25,12 +47,15 @@ console.log("wishlist", wishList.length)
           <summary className="m-1 btn bg-c-primary text-white hover:bg-white hover:border-c-primary hover:text-c-primary">
             Sort By <IoIosArrowDown></IoIosArrowDown>
           </summary>
-          <ul className="p-2 shadow menu dropdown-content z-[1] rounded-box w-52 bg-base-200">
+          <ul className="p-2 shadow menu dropdown-content z-[1] rounded-box w-40 bg-base-200">
             <li>
-              <a>Item 1</a>
+              <a onClick={() => sort("rating")}>Rating</a>
             </li>
             <li>
-              <a>Item 2</a>
+              <a onClick={() => sort("totalPages")}>Number of pages</a>
+            </li>
+            <li>
+              <a onClick={() => sort("yearOfPublishing")}>Published year</a>
             </li>
           </ul>
         </details>
@@ -43,16 +68,18 @@ console.log("wishlist", wishList.length)
             role="tab"
             className="tab"
             aria-label="Read&nbsp;Books"
-            checked
-            
+            onChange={() => handleTab('read')}
+            checked={selectedTab === 'read'}
           />
           <div
             role="tabpanel"
             className="tab-content bg-base-100 border-base-300  py-4 md:py-6 border-x-0 border-b-0"
           >
-            {
-              readingList.map(book=><ListedBook key={book.id} book={book}></ListedBook>)
-            }
+            {readingListDisplayData.length>0?readingListDisplayData.map((book) => (
+              <ListedBook key={book.bookId} book={book}></ListedBook>
+            )):readingList.map((book) => (
+              <ListedBook key={book.bookId} book={book}></ListedBook>
+            ))}
           </div>
 
           <input
@@ -61,14 +88,18 @@ console.log("wishlist", wishList.length)
             role="tab"
             className="tab"
             aria-label="Wishlist&nbsp;Books"
+            onChange={() => handleTab('wish')}
+            checked={selectedTab === 'wish'}
           />
           <div
             role="tabpanel"
             className="tab-content bg-base-100 border-base-300  py-4 md:py-6 border-x-0 border-b-0"
           >
-                        {
-              wishList.map(book=><ListedBook key={book.id} book={book}></ListedBook>)
-            }
+            {wishListDisplayData.length>0?wishListDisplayData.map((book) => (
+              <ListedBook key={book.bookId} book={book}></ListedBook>
+            )):wishList.map((book) => (
+              <ListedBook key={book.bookId} book={book}></ListedBook>
+            ))}
           </div>
         </div>
       </div>
