@@ -7,12 +7,15 @@ const useLoadBookData = () => {
   useEffect(() => {
     setLoading(true);
     const fetchData = async () => {
-      const res = await fetch("/bookData.json");
-      const bookData = await res.json();
-      setData(bookData);
+      try {
+        const res = await fetch("/bookData.json");
+        const bookData = await res.json();
+        setData(bookData);
+      } finally {
+        setLoading(false);
+      }
     };
     fetchData();
-    setLoading(false);
   }, []);
 
   return { bookData, loading };
