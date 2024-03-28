@@ -4,7 +4,7 @@
 
 Book Worm is a user-friendly web application designed for book enthusiasts, offering a seamless experience for discovering, managing, and exploring literature. Built with React and Vite, it provides features such as book exploration, wishlist and reading list management, insightful blog content, and visual tracking of reading progress through interactive charts. With a responsive design, users can enjoy Book Worm's immersive experience across various devices.
 
-#### Live Preview: [Click here](bookworms.surge.sh)
+#### Live Preview: [Click here](http://bookworms.surge.sh/)
 
 ## Technologies Used
 
